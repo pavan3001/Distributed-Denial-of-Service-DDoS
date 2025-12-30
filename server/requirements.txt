@@ -8,5 +8,6 @@ scapy
 pandas
 joblib
 numpy
+gunicorn
 mysql-connector-python
 requests

@@ -160,7 +160,8 @@ if __name__ == '__main__':
     print("[*] Background sniffer/analyzer threads started.")
     
     # Start the Flask Web Server
-    app.run(host='0.0.0.0', debug=True, port=5000, use_reloader=False)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
 
     # Stop the collector gracefully on exit
     data_collector.stop_analysis()
