@@ -44,7 +44,7 @@ const TrafficAnalysis = ({ handleBlock }) => {
 
   if (loading) return <h3 className="status-safe">Loading Real-Time Data...</h3>;
 
-  const { total_packets, inbound_rate, top_source_ips, system_status, blocked_count, monitoring_status } = trafficData;
+  const { inbound_rate, top_source_ips, system_status, blocked_count, monitoring_status } = trafficData;
   const isMonitoringActive = monitoring_status === 'Active';
 
   const getStatusClass = (status) => {
