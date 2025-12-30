@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css'; 
 
-const API_BASE_URL = 'http://127.0.0.1:5000/api';
+const API_BASE_URL = 'https://distributed-denial-of-service-ddos.onrender.com/api';
 
 // Helper function for BPS Formatting
 const formatBPS = (bps) => {
