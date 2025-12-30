@@ -1,0 +1,12 @@
+# Requirements for the server component
+# Note: On Windows, Scapy requires Npcap (https://nmap.org/npcap/) installed and
+# the Python script must be run with administrative privileges to sniff packets.
+
+Flask
+flask-cors
+scapy
+pandas
+joblib
+numpy
+mysql-connector-python
+requests

@@ -1,0 +1,484 @@
+/* client/src/App.css - PROFESSIONAL AND COMPACT STYLES */
+
+/* --- 1. FONT IMPORT & GLOBAL VARIABLES --- */
+
+/* Ensures the technical font is loaded */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    /* Color Palette (High-Contrast Dark) */
+    --color-dark: #0f172a;      /* Deep dark blue (Background) */
+    --color-dark-alt: #1e293b;  /* Slightly lighter dark (Cards/Panels) */
+    --color-primary: #3b82f6;   /* Blue for accents (Safe/Normal) */
+    --color-warning: #f59e0b;   /* Amber/Yellow (Suspect) */
+    --color-danger: #ef4444;    /* Red/Crimson (DDoS/Blocked) */
+    --color-text: #e2e8f0;      /* Light gray/white for main text */
+    --color-text-dim: #94a3b8;  /* Dimmed text/Table headers */
+    --border-radius: 6px;       /* Slightly smaller radius for a sharper look */
+
+    /* Base Font Size and Line Height */
+    --font-size-base: 0.85rem; 
+    --line-height-base: 1.5;
+}
+
+/* --- 2. BASE STYLES & FONT SIZING --- */
+
+body {
+    background-color: var(--color-dark);
+    color: var(--color-text);
+    font-family: 'Space Mono', monospace; 
+    font-size: var(--font-size-base); /* Applied smaller base size */
+    line-height: var(--line-height-base);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.3rem; /* Reduced size */
+    color: var(--color-text);
+    border-bottom: 1px solid #334155;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.0rem; /* Reduced size, closer to body text */
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.dashboard-container {
+    padding: 20px; /* Reduced padding */
+    max-width: 1500px; /* Max width increased for more data columns */
+    margin: 0 auto;
+}
+
+/* --- 3. NAVBAR STYLING --- */
+
+.navbar {
+    background-color: var(--color-dark-alt);
+    padding: 8px 25px; /* Reduced vertical padding */
+    border-bottom: 2px solid var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.navbar-brand {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.3rem; /* Reduced brand size */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px; /* Slightly reduced gap */
+}
+
+.nav-link {
+    color: var(--color-text-dim); 
+    text-decoration: none;
+    font-weight: 400; /* Lighter font weight for modern look */
+    padding: 3px 0;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    font-size: 0.9rem; /* Specific size for links */
+}
+
+.nav-link:hover {
+    color: var(--color-text); 
+    text-shadow: 0 0 3px var(--color-primary); /* Subtler glow */
+}
+
+
+.nav-link.active-link {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.nav-link.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 6px var(--color-primary);
+    border-radius: 1px;
+}
+
+/* --- 4. CARDS AND STATUS DISPLAY --- */
+
+.card {
+    background-color: var(--color-dark-alt);
+    padding: 15px; /* Reduced padding */
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    border-left: 5px solid var(--color-primary); 
+    margin-bottom: 15px; /* Reduced margin */
+    transition: box-shadow 0.2s, border-left-color 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Status Colors (Unchanged, as they were good) */
+.status-safe { color: var(--color-primary); }
+.status-suspect, .status-warning { color: var(--color-warning); }
+.status-ddos, .status-blocked, .status-danger { color: var(--color-danger); }
+
+
+/* --- 5. TABLE STYLING --- */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.85rem; /* Specific, smaller table font size */
+}
+
+.data-table th, .data-table td {
+    padding: 10px 12px; /* Reduced padding */
+    text-align: left;
+    border-bottom: 1px solid #334155; 
+}
+
+.data-table th {
+    background-color: #242f40; /* Slightly darker header */
+    color: var(--color-text-dim);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem; /* Smallest text for headers */
+}
+
+.data-table tbody tr:hover {
+    background-color: #253347; /* Hover row background */
+}
+
+/* --- 6. RISK BAR STYLING --- */
+
+.risk-bar {
+    height: 6px; /* Smaller height */
+    border-radius: 3px;
+    background-color: var(--color-dark);
+    overflow: hidden;
+    margin-top: 3px;
+    width: 80px; /* Smaller width for a cleaner column */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.risk-level {
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.risk-level[data-risk-level="low"] { background-color: var(--color-primary); }
+.risk-level[data-risk-level="medium"] { background-color: var(--color-warning); }
+.risk-level[data-risk-level="high"] { background-color: var(--color-danger); }
+
+
+/* --- 7. BUTTONS --- */
+
+.btn {
+    padding: 6px 12px; /* Reduced padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.8rem; /* Smaller button text */
+    transition: background-color 0.2s, transform 0.1s;
+    margin-left: 8px; /* Reduced margin */
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-text);
+}
+.btn-danger:hover {
+    background-color: #c02d2d;
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+}
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+/* --- 8. Input/Form Styling --- */
+.input-group input[type="text"] {
+    padding: 8px 10px; /* Reduced padding */
+    border: 1px solid #334155;
+    background-color: #0f172a;
+    color: var(--color-text);
+    border-radius: 4px;
+    width: 200px; /* Smaller width */
+    margin-right: 8px;
+    font-size: 0.85rem;
+}
+/* client/src/App.css - Append this to the end of the file for SearchIP component */
+
+/* Search Page Layout */
+.search-page-container {
+    max-width: 800px; /* Constrain the search area */
+    margin: 0 auto;
+}
+
+.search-input-card {
+    border-left-color: var(--color-primary) !important;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-group input[type="text"] {
+    flex-grow: 1; /* Allow input to take remaining space */
+}
+
+.error-message {
+    color: var(--color-danger);
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+/* Detailed Result Card Styling */
+.result-card {
+    margin-top: 30px;
+    padding: 25px;
+}
+
+.ip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.status-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.status-label.status-safe { border-color: var(--color-primary); background-color: rgba(59, 130, 246, 0.1); }
+.status-label.status-warning { border-color: var(--color-warning); background-color: rgba(245, 158, 11, 0.1); }
+.status-label.status-danger { border-color: var(--color-danger); background-color: rgba(239, 68, 68, 0.1); }
+
+
+/* Grid Layout for Details */
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.detail-block {
+    background-color: #16202e; /* Slightly darker background for internal blocks */
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid #334155;
+}
+
+.detail-block label {
+    display: block;
+    color: var(--color-text-dim);
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.detail-block .detail-value {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.detail-block.action-block {
+    grid-column: 1 / -1; /* Span full width for the button */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px; /* Adjust padding for action block */
+}
+
+.detail-block.action-block button {
+    margin-left: 0; /* Remove default button margin */
+}
+/* ======================================================
+   SEARCH IP PAGE - PROFESSIONAL DARK CYBER THEME
+   ====================================================== */
+
+.search-ip {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: var(--color-dark-alt);
+  padding: 25px 30px;
+  border-radius: var(--border-radius);
+  border-left: 5px solid var(--color-primary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.search-ip:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+.search-ip h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-ip .input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.search-ip input[type="text"] {
+  flex-grow: 1;
+  padding: 10px 12px;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.search-ip input[type="text"]:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Error Message --- */
+.search-ip .status-ddos {
+  color: var(--color-danger);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* --- Result Card --- */
+.search-ip .card {
+  border-left: 5px solid var(--color-primary);
+  background-color: #182233;
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transition: border-left-color 0.3s ease;
+}
+
+.search-ip .card h3 {
+  color: var(--color-text);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.search-ip .card p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+  color: var(--color-text-dim);
+}
+
+.search-ip .card strong {
+  color: var(--color-text);
+}
+
+.search-ip .card .status-safe {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.search-ip .card .status-ddos {
+  color: var(--color-danger);
+  font-weight: 700;
+}
+
+.search-ip .card .status-warning {
+  color: var(--color-warning);
+  font-weight: 700;
+}
+
+/* --- Action Buttons --- */
+.search-ip .card button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.25s ease, transform 0.1s ease-in-out;
+}
+
+.search-ip .btn-danger {
+  background-color: var(--color-danger);
+  color: var(--color-text);
+}
+
+.search-ip .btn-danger:hover {
+  background-color: #c92a2a;
+  transform: translateY(-2px);
+}
+
+.search-ip .btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+}
+
+.search-ip .btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 600px) {
+  .search-ip {
+    padding: 20px;
+  }
+
+  .search-ip .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-ip input[type="text"] {
+    width: 100%;
+  }
+
+  .search-ip button {
+    width: 100%;
+  }
+}
